@@ -93,22 +93,22 @@ func scan(in *os.File) []mul {
 	return instrs
 }
 
-func part1(instrs []mul) int {
+func part1(instrs []mul) {
 	var result int = 0
 	for _, mul := range instrs {
 		result += mul.x1 * mul.x2
 	}
-	return result
+	fmt.Printf("part1: %d\n", result)
 }
 
-func part2(instrs []mul) int {
+func part2(instrs []mul) {
 	var result int = 0
 	for _, mul := range instrs {
 		if !mul.disabled {
 			result += mul.x1 * mul.x2
 		}
 	}
-	return result
+	fmt.Printf("part2: %d\n", result)
 }
 
 func main() {
@@ -119,9 +119,7 @@ func main() {
 	instrs := scan(in)
 	in.Close()
 
-	result1 := part1(instrs)
-	fmt.Printf("part1: %d\n", result1)
-
-	result2 := part2(instrs)
-	fmt.Printf("part2: %d\n", result2)
+	fmt.Println("Mull It Over")
+	part1(instrs)
+	part2(instrs)
 }
